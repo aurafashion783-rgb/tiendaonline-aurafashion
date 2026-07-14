@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurafashion Atu Estilo Unisex - Tienda Oficial</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #111111;
+            --primary-light: #222222;
+            --accent: #E63946;
+            --success: #25D366;
+            --bg: #F8F9FA;
+            --surface: #FFFFFF;
+            --text: #1F2937;
+            --text-muted: #4B5563;
+            --border: #E5E7EB;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- Header & Navigation --- */
+        header {
+            background-color: var(--surface);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.25rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            letter-spacing: -0.05em;
+            text-transform: uppercase;
+        }
+
+        .cart-trigger {
+            background: var(--primary);
+            color: var(--surface);
+            border: none;
+            padding: 0.75rem 1.25rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .cart-trigger:hover {
+            transform: translateY(-2px);
+            background: var(--primary-light);
+        }
+
+        .cart-count-badge {
+            background: var(--accent);
+            color: var(--surface);
+            font-size: 0.75rem;
+            font-weight: 700;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            background: var(--surface);
+            padding: 5rem 1.5rem;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .hero-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .badge-info {
+            display: inline-block;
+            background: rgba(17, 17, 17, 0.05);
+            color: var(--primary);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.05em;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -0.03em;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* --- Catalog & Grid --- */
+        .catalog {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .catalog-title {
+            font-size: 1.75rem;
+            font-weight: 800;
+            margin-bottom: 2.5rem;
+            letter-spacing: -0.02em;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .catalog-title::after {
+            content: '';
+            flex-grow: 1;
+            height: 2px;
+            background: var(--border);
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: var(--surface);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow);
+        }
+
+        .product-media {
+            background: #F3F4F6;
+            height: 280px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+            user-select: none;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .product-details {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .product-category {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .product-price {
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-add-cart {
+            width: 100%;
+            background: var(--primary);
+            color: var(--surface);
+            border: none;
+            padding: 0.9rem;
+            font-size: 0.95rem;
+            font-weight: 700;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .btn-add-cart:hover {
+            background: var(--primary-light);
+        }
+
+        .btn-add-cart:active {
+            transform: scale(0.98);
+        }
+
+        /* --- Shopping Cart Drawer --- */
+        .cart-drawer-backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(4px);
+            z-index: 200;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .cart-drawer-backdrop.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .cart-drawer {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            max-width: 460px;
+            height: 100%;
+            background: var(--surface);
+            z-index: 201;
+            box-shadow: -10px 0 40px rgba(0, 0, 0, 0.1);
+            transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cart-drawer.active {
+            right: 0;
+        }
+
+        .cart-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cart-title {
+            font-size: 1.25rem;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .btn-close-cart {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            font-weight: 700;
+            cursor: pointer;
+            color: var(--text-muted);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .btn-close-cart:hover {
+            background: var(--bg);
+            color: var(--primary);
+        }
+
+        .cart-body {
+            flex-grow: 1;
+            overflow-y: auto;
+            padding: 1.5rem;
+        }
+
+        .empty-cart-message {
+            text-align: center;
+            color: var(--text-muted);
+            margin-top: 3rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .empty-cart-message span {
+            font-size: 3rem;
+        }
+
+        .cart-item {
+            display: flex;
+            gap: 1rem;
+            padding-bottom: 1.25rem;
+            margin-bottom: 1.25rem;
+            border-bottom: 1px solid var(--border);
+            align-items: center;
+        }
+
+        .cart-item-image {
+            width: 70px;
+            height: 70px;
+            background: #F3F4F6;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            border: 1px solid var(--border);
+        }
+
+        .cart-item-info {
+            flex-grow: 1;
+        }
+
+        .cart-item-name {
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .cart-item-price {
+            font-weight: 800;
+            color: var(--primary);
+            font-size: 1.05rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .cart-item-actions {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+            background: var(--bg);
+        }
+
+        .btn-qty {
+            background: none;
+            border: none;
+            width: 32px;
+            height: 32px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-qty:hover {
+            background: var(--border);
+        }
+
+        .qty-val {
+            width: 32px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+
+        .btn-remove-item {
+            background: none;
+            border: none;
+            color: var(--accent);
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            transition: var(--transition);
+        }
+
+        .btn-remove-item:hover {
+            background: #FFF5F5;
+        }
+
+        .cart-footer {
+            padding: 1.5rem;
+            border-top: 1px solid var(--border);
+            background: var(--bg);
+        }
+
+        .cart-summary-line {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .cart-summary-line.total {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-top: 0.5rem;
+            padding-top: 0.5rem;
+            border-top: 1px dashed var(--border);
+        }
+
+        .btn-checkout {
+            width: 100%;
+            background: var(--success);
+            color: var(--surface);
+            border: none;
+            padding: 1.1rem;
+            font-size: 1.1rem;
+            font-weight: 800;
+            border-radius: 12px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-top: 1.25rem;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            transition: var(--transition);
+        }
+
+        .btn-checkout:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+        }
+
+        /* --- WhatsApp Floating Button --- */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: var(--success);
+            color: var(--surface);
+            border-radius: 50px;
+            padding: 0.85rem 1.5rem;
+            box-shadow: 0 6px 24px rgba(0,0,0,0.15);
+            z-index: 150;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .whatsapp-float:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.4);
+        }
+
+        .whatsapp-float svg {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+        }
+
+        .online-badge {
+            background: #FFFFFF;
+            color: var(--success);
+            font-size: 0.7rem;
+            font-weight: 800;
+            padding: 0.2rem 0.5rem;
+            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .online-badge::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: var(--success);
+            border-radius: 50%;
+            display: inline-block;
+            animation: pulse 1.5s infinite;
+        }
+
+        /* --- Footer Section --- */
+        footer {
+            background: var(--primary);
+            color: var(--surface);
+            padding: 4rem 1.5rem;
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.05em;
+            margin-bottom: 1rem;
+        }
+
+        .footer-info {
+            color: #9CA3AF;
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .footer-copyright {
+            font-size: 0.85rem;
+            color: #6B7280;
+            border-top: 1px solid #222222;
+            padding-top: 2rem;
+        }
+
+        /* --- Keyframes & Responsiveness --- */
+        @keyframes pulse {
+            0% { transform: scale(0.9); opacity: 0.8; }
+            50% { transform: scale(1.2); opacity: 1; }
+            100% { transform: scale(0.9); opacity: 0.8; }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.25rem; }
+            .whatsapp-float { bottom: 1.5rem; right: 1.5rem; padding: 0.85rem 1.25rem; }
+            .whatsapp-float span { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">Aurafashion</div>
+            <button class="cart-trigger" id="cartBtn">
+                <span>🛒 Mi Carrito</span>
+                <span class="cart-count-badge" id="cartBadgeCount">0</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <span class="badge-info">Envíos a todo el país</span>
+            <h1>Aurafashion Atu Estilo Unisex</h1>
+            <p>Moda y vestimenta urbana de corte unisex premium. Descubre las prendas ideales para expresar tu verdadera personalidad sin límites.</p>
+        </div>
+    </section>
+
+    <!-- Catalog Section -->
+    <main class="catalog">
+        <h2 class="catalog-title">Colección Exclusiva</h2>
+        <div class="product-grid" id="productGrid">
+            <!-- Dynamically populated via JS -->
+        </div>
+    </main>
+
+    <!-- Shopping Cart Drawer -->
+    <div class="cart-drawer-backdrop" id="cartBackdrop"></div>
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-header">
+            <h3 class="cart-title">Tu Pedido</h3>
+            <button class="btn-close-cart" id="closeCartBtn">×</button>
+        </div>
+        <div class="cart-body" id="cartBody">
+            <!-- Dynamically populated products -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-summary-line">
+                <span>Subtotal</span>
+                <span id="cartSubtotal">0 Bs</span>
+            </div>
+            <div class="cart-summary-line">
+                <span>Envío</span>
+                <span style="color: var(--success); font-weight: 700;">A coordinar</span>
+            </div>
+            <div class="cart-summary-line total">
+                <span>Total Estimado</span>
+                <span id="cartTotal">0 Bs</span>
+            </div>
+            <button class="btn-checkout" id="checkoutBtn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="white" style="display:inline-block; vertical-align:middle;">
+                    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.244 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.717-1.455L0 24zm6.59-4.846c1.6.95 3.18 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.963C16.488 2.015 14.017 1 11.6 1c-5.44 0-9.866 4.372-9.87 9.802 0 1.96.512 3.878 1.483 5.584l-.995 3.637 3.832-.989zm11.326-5.409c-.193-.097-1.14-.561-1.316-.625-.176-.064-.305-.096-.434.097-.129.193-.5.625-.613.753-.113.129-.227.145-.42.048-.193-.097-.813-.299-1.548-.953-.572-.509-.958-1.139-1.07-1.332-.113-.193-.012-.298.085-.395.087-.088.193-.227.29-.339.097-.113.129-.193.193-.322.065-.129.033-.242-.016-.339-.049-.097-.434-1.046-.595-1.433-.157-.379-.315-.328-.433-.334-.112-.006-.24-.006-.368-.006-.128 0-.338.048-.515.242-.177.193-.676.661-.676 1.611 0 .95.692 1.869.789 2.0c.097.129 1.36 2.073 3.295 2.909.46.199.82.317 1.1.407.463.147.884.126 1.218.076.372-.056 1.14-.467 1.302-.918.162-.451.162-.837.113-.918-.049-.081-.177-.129-.37-.226z"/>
+                </svg>
+                <span>Enviar Pedido a WhatsApp</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- WhatsApp Floating Action Button -->
+    <a href="https://wa.me/59172164576?text=¡Hola!%20Vengo%20desde%20la%20tienda%20online%20y%20quisiera%20hacer%20una%20consulta." class="whatsapp-float" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.244 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.717-1.455L0 24zm6.59-4.846c1.6.95 3.18 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.963C16.488 2.015 14.017 1 11.6 1c-5.44 0-9.866 4.372-9.87 9.802 0 1.96.512 3.878 1.483 5.584l-.995 3.637 3.832-.989zm11.326-5.409c-.193-.097-1.14-.561-1.316-.625-.176-.064-.305-.096-.434.097-.129.193-.5.625-.613.753-.113.129-.227.145-.42.048-.193-.097-.813-.299-1.548-.953-.572-.509-.958-1.139-1.07-1.332-.113-.193-.012-.298.085-.395.087-.088.193-.227.29-.339.097-.113.129-.193.193-.322.065-.129.033-.242-.016-.339-.049-.097-.434-1.046-.595-1.433-.157-.379-.315-.328-.433-.334-.112-.006-.24-.006-.368-.006-.128 0-.338.048-.515.242-.177.193-.676.661-.676 1.611 0 .95.692 1.869.789 2.0c.097.129 1.36 2.073 3.295 2.909.46.199.82.317 1.1.407.463.147.884.126 1.218.076.372-.056 1.14-.467 1.302-.918.162-.451.162-.837.113-.918-.049-.081-.177-.129-.37-.226z"/>
+        </svg>
+        <span>Chatear ahora</span>
+        <div class="online-badge">Online</div>
+    </a>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">Aurafashion</div>
+            <div class="footer-info">
+                <p>📍 Ventas exclusiva online con envío a todo el país</p>
+                <p>Bolivia</p>
+            </div>
+            <p class="footer-copyright">&copy; 2026 Aurafashion. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Product Catalog Data
+        const PRODUCTS = [
+            { id: "A", name: "A-Poleras", price: 80, emoji: "👕", category: "Prendas" },
+            { id: "B", name: "B-Camisas", price: 150, emoji: "👔", category: "Casual" },
+            { id: "C", name: "C-Pantalones", price: 190, emoji: "👖", category: "Diario" },
+            { id: "D", name: "D-Sueters", price: 100, emoji: "🧥", category: "Abrigo" }
+        ];
+
+        // WhatsApp Contact (Clean format without +)
+        const WHATSAPP_PHONE = "59172164576";
+
+        // Global State for Cart
+        let cart = [];
+
+        // DOM Elements
+        const productGrid = document.getElementById('productGrid');
+        const cartDrawer = document.getElementById('cartDrawer');
+        const cartBackdrop = document.getElementById('cartBackdrop');
+        const cartBtn = document.getElementById('cartBtn');
+        const closeCartBtn = document.getElementById('closeCartBtn');
+        const cartBody = document.getElementById('cartBody');
+        const cartSubtotal = document.getElementById('cartSubtotal');
+        const cartTotal = document.getElementById('cartTotal');
+        const cartBadgeCount = document.getElementById('cartBadgeCount');
+        const checkoutBtn = document.getElementById('checkoutBtn');
+
+        // Render Products Dynamically
+        function renderProducts() {
+            productGrid.innerHTML = PRODUCTS.map(p => `
+                <div class="product-card">
+                    <div class="product-media">${p.emoji}</div>
+                    <div class="product-details">
+                        <span class="product-category">${p.category}</span>
+                        <h3 class="product-name">${p.name}</h3>
+                        <div class="product-price">${p.price} Bs</div>
+                        <button class="btn-add-cart" onclick="addToCart('${p.id}')">
+                            <span>Agregar al Carrito</span>
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Drawer Operations
+        function openCart() {
+            cartDrawer.classList.add('active');
+            cartBackdrop.classList.add('active');
+        }
+
+        function closeCart() {
+            cartDrawer.classList.remove('active');
+            cartBackdrop.classList.remove('active');
+        }
+
+        // Cart Actions
+        function addToCart(id) {
+            const product = PRODUCTS.find(p => p.id === id);
+            const cartItem = cart.find(item => item.id === id);
+
+            if (cartItem) {
+                cartItem.quantity += 1;
+            } else {
+                cart.push({ ...product, quantity: 1 });
+            }
+
+            updateCart();
+            openCart();
+        }
+
+        function changeQuantity(id, change) {
+            const cartItem = cart.find(item => item.id === id);
+            if (cartItem) {
+                cartItem.quantity += change;
+                if (cartItem.quantity <= 0) {
+                    cart = cart.filter(item => item.id !== id);
+                }
+            }
+            updateCart();
+        }
+
+        function removeItem(id) {
+            cart = cart.filter(item => item.id !== id);
+            updateCart();
+        }
+
+        function updateCart() {
+            // Update Badge Count
+            const totalQty = cart.reduce((acc, curr) => acc + curr.quantity, 0);
+            cartBadgeCount.textContent = totalQty;
+
+            if (cart.length === 0) {
+                cartBody.innerHTML = `
+                    <div class="empty-cart-message">
+                        <span>🛍️</span>
+                        <p>Tu carrito está completamente vacío.</p>
+                    </div>
+                `;
+                cartSubtotal.textContent = "0 Bs";
+                cartTotal.textContent = "0 Bs";
+                checkoutBtn.disabled = true;
+                checkoutBtn.style.opacity = "0.5";
+                return;
+            }
+
+            checkoutBtn.disabled = false;
+            checkoutBtn.style.opacity = "1";
+
+            // Render Cart Items
+            cartBody.innerHTML = cart.map(item => `
+                <div class="cart-item">
+                    <div class="cart-item-image">${item.emoji}</div>
+                    <div class="cart-item-info">
+                        <div class="cart-item-name">${item.name}</div>
+                        <div class="cart-item-price">${item.price * item.quantity} Bs</div>
+                        <div class="cart-item-actions">
+                            <div class="quantity-selector">
+                                <button class="btn-qty" onclick="changeQuantity('${item.id}', -1)">-</button>
+                                <span class="qty-val">${item.quantity}</span>
+                                <button class="btn-qty" onclick="changeQuantity('${item.id}', 1)">+</button>
+                            </div>
+                            <button class="btn-remove-item" onclick="removeItem('${item.id}')">Eliminar</button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            // Calculate Totals
+            const subtotal = cart.reduce((acc, curr) => acc + (curr.price * curr.quantity), 0);
+            cartSubtotal.textContent = `${subtotal} Bs`;
+            cartTotal.textContent = `${subtotal} Bs`;
+        }
+
+        // WhatsApp API Order Formatting
+        function processCheckout() {
+            if (cart.length === 0) return;
+
+            let message = `🛒 *PEDIDO NUEVO - AURAFASHION* \n\n`;
+            message += `¡Hola! Me gustaría confirmar la compra del siguiente carrito:\n`;
+            message += `───────────────────────\n`;
+
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                message += `▪️ *${item.name}* (x${item.quantity})\n`;
+                message += `   Subtotal: ${itemTotal} Bs\n\n`;
+            });
+
+            const grandTotal = cart.reduce((acc, curr) => acc + (curr.price * curr.quantity), 0);
+            message += `───────────────────────\n`;
+            message += `💰 *TOTAL A PAGAR:* ${grandTotal} Bs\n\n`;
+            message += `📍 *Dirección de envío:* Ventas exclusiva online con envío a todo el país.`;
+
+            const encodedMessage = encodeURIComponent(message);
+            window.open(`https://wa.me/${WHATSAPP_PHONE}?text=${encodedMessage}`, '_blank');
+        }
+
+        // Event Listeners
+        cartBtn.addEventListener('click', openCart);
+        closeCartBtn.addEventListener('click', closeCart);
+        cartBackdrop.addEventListener('click', closeCart);
+        checkoutBtn.addEventListener('click', processCheckout);
+
+        // Init Lifecycle
+        renderProducts();
+        updateCart();
+    </script>
+</body>
+</html>
