@@ -26,3 +26,4 @@ Número de teléfono-72164576
 2. **Estructura Visual:** Usa ### para subtítulos y **negritas**.
 3. **Call to Action (CTA):** Finaliza con una pregunta abierta.
 4. **Emojis:** Máximo 2 por mensaje
+  <script src="https://catza-digital.github.io/catza-ai-widget/widget.js" data-client="cliente001"></script>
